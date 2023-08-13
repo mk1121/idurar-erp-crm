@@ -95,6 +95,7 @@ exports.generatePdf = async (
       format: info.format,
       orientation: 'portrait',
       border: '12mm',
+      childProcessOptions: { env: { OPENSSL_CONF: '/dev/null' } }
     })
     .toFile(targetLocation, function (err) {
       if (err) return console.log('this pdf create error ' + err);
